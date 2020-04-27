@@ -28,7 +28,7 @@
                 <a href="{{url('/forum')}}"><i class="fa fa-users"></i></a>
             </div>
             <div class="profile @yield('profile')">
-                <a href="{{url('/profile')}}"><i class="fa fa-user"></i></a>
+                <a href="{{url('/profile')}}"><i class="fa fa-user-circle"></i></a>
             </div>
             <div class="tugas @yield('tugas')">
                 <a href="{{url('/tugas')}}"><i class="fa fa-code"></i></a>

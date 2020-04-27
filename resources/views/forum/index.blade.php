@@ -23,7 +23,7 @@
                 <input type="hidden" name="kelas_id" value="{{ Auth::user()->kelas->id }}">
                 <div class="input-group">
                     <input type="text" class="form-control p-3" placeholder="Tanyakan Sesuatu" name="pertanyaan">
-                    <button class="btn btn-primary" type="submit">Kirim</button>
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane"></i></button>
                 </div>
             </form>
 
@@ -45,7 +45,7 @@
                         <input type="hidden" value="{{ $forum->user->id }}" name="user_id">
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Tambahkan Komentar" name="komentar">
-                            <button class="btn btn-warning" type="submit">Kirim</button>
+                            <button class="btn btn-warning" type="submit"><i class="fa fa-paper-plane"></i></button>
                         </div>
 
                     </form>
