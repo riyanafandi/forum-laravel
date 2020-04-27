@@ -20,6 +20,7 @@
             <form action="/forum" method="post">
                 @csrf
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                <input type="hidden" name="kelas_id" value="{{ Auth::user()->kelas->id }}">
                 <div class="input-group">
                     <input type="text" class="form-control p-3" placeholder="Tanyakan Sesuatu" name="pertanyaan">
                     <button class="btn btn-primary" type="submit">Kirim</button>

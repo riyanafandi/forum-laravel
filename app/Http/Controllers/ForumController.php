@@ -43,7 +43,8 @@ class ForumController extends Controller
         ]);
         Forum::create([
             'content' => $request->pertanyaan,
-            'user_id' => $request->user_id
+            'user_id' => $request->user_id,
+            'kelas_id' => $request->kelas_id,
         ]);
         return redirect()->back()->with('status', 'Pertanyaan Anda Telah Tersampaikan');
     }

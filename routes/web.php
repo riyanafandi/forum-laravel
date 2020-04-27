@@ -30,23 +30,25 @@ Route::group(['middleware' => 'auth'], function(){
 
 
     Route::get('/tugas', 'UserController@tugas');
+    
+    Route::get('/admin', 'AdminController@index');
+    Route::get('/admin/kelas', 'AdminController@kelas');
+    Route::get('/admin/siswa', 'AdminController@siswa');
+    Route::post('/admin/kelas', 'AdminController@inputkelas');
+    Route::get('/admin/kelas/detail/{kelas}', 'AdminController@showkelas');
+    Route::get('/admin/siswa/detail/{user}', 'AdminController@showsiswa');
+    Route::post('/admin/siswa/{user}/addnilai', 'AdminController@addnilai');
+    
+    Route::get('/admin/mapel', 'MapelController@index');
+    Route::get('/admin/mapel/{mapel}', 'MapelController@show');
+    
+    Route::get('/admin/guru', 'AdminController@guru');
+    Route::get('/admin/guru/{guru}', 'AdminController@detailguru');
 });
-
-Route::get('/admin', 'AdminController@index');
-Route::get('/admin/kelas', 'AdminController@kelas');
-Route::get('/admin/siswa', 'AdminController@siswa');
-Route::post('/admin/kelas', 'AdminController@inputkelas');
-Route::get('/admin/kelas/detail/{kelas}', 'AdminController@showkelas');
-Route::get('/admin/siswa/detail/{user}', 'AdminController@showsiswa');
-Route::post('/admin/siswa/{user}/addnilai', 'AdminController@addnilai');
-
-Route::get('/admin/mapel', 'MapelController@index');
-Route::get('/admin/mapel/{mapel}', 'MapelController@show');
-
-Route::get('/admin/guru', 'AdminController@guru');
-Route::get('/admin/guru/{guru}', 'AdminController@detailguru');
 
 
 Route::get('/login', 'AuthController@login')->middleware('guest')->name('login');
+Route::get('/register', 'AuthController@register')->middleware('guest');
 Route::post('/postlogin', 'AuthController@postLogin');
+Route::post('/postregister', 'AuthController@postregister');
 Route::get('/logout', 'AuthController@logout');

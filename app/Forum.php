@@ -8,7 +8,7 @@ class Forum extends Model
 {
     //
     protected $table = "forum";
-    protected $fillable = ['content', 'user_id'];
+    protected $fillable = ['content', 'user_id', 'kelas_id'];
 
     public function user()
     {
