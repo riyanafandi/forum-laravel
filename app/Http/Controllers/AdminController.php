@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Kelas;
 use App\User;
 use App\Guru;
+use App\Mapel;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -49,10 +50,24 @@ class AdminController extends Controller
     public function showsiswa(User $user)
     {
         $siswa = $user;
-        return view('admin.detailsiswa', compact('siswa'));
+        $mapels = Mapel::all();
+        // dd($mapel);
+        return view('admin.detailsiswa', compact('siswa', 'mapels'));
     }
 
     // mapel
+
+    public function addnilai(Request $request, $idsiswa)
+    {
+        $user = User::find($idsiswa);
+        // dd($user);
+        if($user->mapel()->where('mapel_id', $request->mapel_id)->exists()){
+            return redirect()->back()->with('nilaiSudahAda', 'Nilai sudah ada');
+        }else{
+            $user->mapel()->attach($request->mapel_id, ['nilai' => $request->nilai]);
+        }
+        return redirect()->back()->with('addnilai', 'Nilai '. $user->name .' Berhasil Ditambahkan');
+    }
 
 
 

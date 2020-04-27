@@ -38,6 +38,7 @@ Route::get('/admin/siswa', 'AdminController@siswa');
 Route::post('/admin/kelas', 'AdminController@inputkelas');
 Route::get('/admin/kelas/detail/{kelas}', 'AdminController@showkelas');
 Route::get('/admin/siswa/detail/{user}', 'AdminController@showsiswa');
+Route::post('/admin/siswa/{user}/addnilai', 'AdminController@addnilai');
 
 Route::get('/admin/mapel', 'MapelController@index');
 Route::get('/admin/mapel/{mapel}', 'MapelController@show');

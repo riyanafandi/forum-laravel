@@ -6,7 +6,7 @@
     <h1>Halaman Management Mapel</h1>
     <div class="card">
         <div class="card-header">
-            <h3>Semua Mapel</h3>
+            Semua Mapel
         </div>
         <div class="card-body">
             <table class="table">

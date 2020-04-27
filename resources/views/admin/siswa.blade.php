@@ -6,7 +6,7 @@
     <h1>Halaman Manajemen Siswa</h1>
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h3>Daftar Semua Siswa</h3>
+            Daftar Semua Siswa
         </div>
         <div class="card-body">
             @if(session('suksesinput'))

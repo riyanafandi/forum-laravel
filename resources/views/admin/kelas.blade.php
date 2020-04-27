@@ -6,7 +6,7 @@
     <h1>Halaman Manajemen Kelas</h1>
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <h3>Daftar Semua Kelas</h3>
+            Daftar Semua Kelas
             <button data-target="#modal" data-toggle="modal" class="btn btn-primary">Tambah Kelas</button>
         </div>
         <div class="card-body">
