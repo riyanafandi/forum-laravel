@@ -25,8 +25,9 @@ Route::group(['middleware' => 'auth'], function(){
 
 
     Route::get('/profile', 'UserController@index');
-    Route::get('/beranda', 'UserController@beranda');
-    Route::post('/beranda/komentar', 'UserController@komentarberanda');
+    Route::get('/beranda', 'BerandaController@index');
+    Route::post('/beranda', 'BerandaController@store');
+    Route::post('/beranda/komentar', 'BerandaController@');
 
 
     Route::get('/tugas', 'UserController@tugas');

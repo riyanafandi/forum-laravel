@@ -50,4 +50,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Mapel::class)->withPivot(['nilai']);
     }
+    public function beranda()
+    {
+        return $this->hasMany(Beranda::class);
+    }
 }
