@@ -34,21 +34,26 @@ Profile {{ Auth::user()->name }}
             <h3>Daftar Nilai</h3>
         </div>
         <div class="card-body">
-            <div class="ulang">
-                @foreach( Auth::user()->mapel as $mapel )
-                <div class="card">
-                    <div class="card-header">
-                        <h4>{{ $mapel->mapel }}</h4>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">Nilai : {{ $mapel->pivot->nilai }}</li>
-                            <li class="list-group-item">Guru : baseng</li>
-                        </ul>
-                    </div>
-                </div>
-                @endforeach
-            </div>
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>No</th>
+                        <th>Mapel</th>
+                        <th>Guru</th>
+                        <th>Nilai</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach( Auth::user()->mapel as $mapel )
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $mapel->mapel }}</td>
+                        <td>{{ $mapel->guru->nama }}</td>
+                        <td>{{ $mapel->pivot->nilai }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
         <div class="card-footer">
         </div>
