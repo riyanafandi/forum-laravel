@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Forum;
 use App\Komentar;
+use App\Tugas;
+use App\Jawaban;
 
 class UserController extends Controller
 {
@@ -103,5 +105,30 @@ class UserController extends Controller
     public function tugas()
     {
         return view('tugas.index');
+    }
+
+    public function showtugas(Tugas $tugas)
+    {
+        // dd($tugas);
+        return view('tugas/detailtugas', compact('tugas'));
+    }
+
+
+    public function jawaban(Request $request)
+    {
+        $request->validate([
+            'jawaban' => 'required',
+            'gambar' => 'max:3000|mimes:jpg,jpeg,png'
+        ]); 
+        $gambar = $request->gambar;
+        $newGambar = $gambar->getClientOriginalName();
+        Jawaban::create([
+            'jawaban' => $request->jawaban,
+            'gambar' => 'img/' . $newGambar,
+            'user_id' => $request->user_id,
+            'tugas_id' => $request->tugas_id,
+        ]);
+        $gambar->move('img/', $newGambar);
+        return redirect()->back()->with('berhasil', 'Jawaban Berhasil Dikirimkan');
     }
 }

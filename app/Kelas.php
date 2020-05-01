@@ -23,4 +23,9 @@ class Kelas extends Model
     {
         return $this->belongsToMany(Guru::class)->withPivot(['jam_ke']);
     }
+
+    public function tugas()
+    {
+        return $this->hasMany(Tugas::class);
+    }
 }

@@ -13,9 +13,28 @@ Tugas {{ Auth::user()->name }}
             <h3>Daftar Tugas</h3>
         </div>
         <div class="card-body">
-
-        </div>
-        <div class="card-footer">
+            <table class="table table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Pelajaran</th>
+                        <th>Guru</th>
+                        <th>Deskripsi</th>
+                        <th>Info</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(Auth::user()->kelas->tugas as $tugas)
+                    <tr>
+                        <td>{{ $tugas->mapel->mapel }}</td>
+                        <td>{{ $tugas->guru->nama }}</td>
+                        <td>{{ substr($tugas->deskripsi, 0, 100) }}...</td>
+                        <td>
+                            <a href="/tugas/{{ $tugas->id }}" class="btn btn-sm btn-info">detail</a>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

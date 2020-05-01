@@ -31,6 +31,9 @@ Route::group(['middleware' => 'auth'], function(){
 
 
     Route::get('/tugas', 'UserController@tugas');
+    Route::get('/tugas/{tugas}', 'UserController@showtugas');
+    Route::post('/jawaban', 'UserController@jawaban');
+
     
     Route::get('/admin', 'AdminController@index');
     Route::get('/admin/kelas', 'AdminController@kelas');
@@ -39,6 +42,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/admin/kelas/detail/{kelas}', 'AdminController@showkelas');
     Route::get('/admin/siswa/detail/{user}', 'AdminController@showsiswa');
     Route::post('/admin/siswa/{user}/addnilai', 'AdminController@addnilai');
+    Route::get('/admin/tambahTugas', 'AdminController@tugas');
+    Route::post('/admin/tambahTugas', 'AdminController@posttugas');
     
     Route::get('/admin/mapel', 'MapelController@index');
     Route::get('/admin/mapel/{mapel}', 'MapelController@show');

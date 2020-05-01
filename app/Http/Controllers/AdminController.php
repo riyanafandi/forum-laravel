@@ -6,6 +6,7 @@ use App\Kelas;
 use App\User;
 use App\Guru;
 use App\Mapel;
+use App\Tugas;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -39,6 +40,7 @@ class AdminController extends Controller
 
     public function showkelas(Kelas $kelas)
     {
+       
         return view('admin.detailkelas', compact('kelas'));
     }
 
@@ -81,6 +83,34 @@ class AdminController extends Controller
     public function detailguru(Guru $guru)
     {
         return view('admin/detailguru', compact('guru'));
+    }
+    public function tugas()
+    {
+        $mapels = Mapel::all();
+        $kelass = Kelas::all();
+        return view('admin/tambah_tugas', compact('mapels', 'kelass'));
+    }
+
+    public function posttugas(Request $request)
+    {
+        $request->validate([
+            'mapel' => 'required',
+            'deskripsi' => 'required',
+            'kelas_id' => 'required',
+            'file' => 'file',
+        ]);
+        $file = $request->file;
+        $newfile = $file->getClientOriginalName();
+        // dd($newfile);
+        Tugas::create([
+            'deskripsi' => $request->deskripsi,
+            'mapel_id' => $request->mapel,
+            'kelas_id' => $request->kelas_id,
+            'file' => $newfile,
+            'guru_id' => $request->guru_id
+        ]);
+        $file->move('file/', $newfile);
+        return redirect('/admin/kelas/detail/' . $request->kelas_id)->with('berhasil', 'Tugas kelas berhasil dikirimkan');
     }
 
 }

@@ -37,7 +37,9 @@ Profile {{ Auth::user()->name }}
                                 <li class="list-group-item">NIS: {{ Auth::user()->siswa->nis }}</li>
                                 <li class="list-group-item">Jenis Kelamin: {{ Auth::user()->siswa->jenis_kelamin }}</li>
                                 <li class="list-group-item">Agama: {{ Auth::user()->siswa->agama }}</li>
-                                <li class="list-group-item">TTL: {{ Auth::user()->siswa->ttl }}</li>\
+                                <li class="list-group-item">TTL: {{ Auth::user()->siswa->ttl }}</li>
+                                <a href="" data-target="" data-toggle="modal" class="btn btn-sm btn-primary">Ubah
+                                    Profile</a>
                                 @endif
                             </ul>
                         </div>

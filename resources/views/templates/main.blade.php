@@ -19,29 +19,6 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a href="" class="navbar-brand">Riyan Burg</a>
-            <button class="navbar-toggler" data-target="#navbar" data-toggle="collapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="" class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown">profile</a>
-                        <div class="dropdown-menu dropdown-list" aria-labelledby="dropdown">
-                            <a href="" class="dropdown-item">Profile</a>
-                            <a href="" class="dropdown-item">settings</a>
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-    </nav>
     <header class="header fixed-bottom">
         <div class="container-satu">
             <div class="beranda @yield('beranda')">
